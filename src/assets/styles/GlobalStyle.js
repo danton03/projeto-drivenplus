@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
     --cor-preta: #0E0E13;
     --cor-vermelha: #FF4747;
     --cor-cinza: #CECECE;
-    --cor-texto-input: #7E7E7E;
+    --cor-cinza-escuro: #7E7E7E;
   }
   
   body{

@@ -25,7 +25,7 @@ function App() {
           <Route path="/" element={<TelaLogin />} />
           <Route path="/sign-up" element={<TelaCadastro/>} />
           <Route path="/subscriptions" element={<TelaPlanos />} />
-          <Route path="/subscriptions/ID_DO_PLANO" element={<TelaPlano/>} />
+          <Route path="/subscriptions/:idDoPlano" element={<TelaPlano/>} />
           <Route path="/home" element={<TelaHome/>}/>
         </Routes>
       </BrowserRouter>

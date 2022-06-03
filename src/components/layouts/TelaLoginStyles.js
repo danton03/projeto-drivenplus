@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 const Conteudo = styled.div`
   &, form { 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
   }
 
   img{
@@ -32,10 +32,9 @@ const Conteudo = styled.div`
       font-weight: 400;
       font-size: 14px;
       line-height: 16px;
-      color: var(--cor-texto-input);
+      color: var(--cor-cinza-escuro);
     }
   }
-
 `;
 
 export {Conteudo};

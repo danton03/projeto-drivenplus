@@ -23,8 +23,6 @@ export default function TelaCadastro() {
   function handleSubmit(event) {
     event.preventDefault(); //previne o reload da página
     const cpfValido = validaCPF(stateForm.cpf);
-    console.log("cpf Válido ?");
-    console.log(cpfValido);
     if(cpfValido){
       //Dados que serão enviados para a API
       const dadosUsuario = {
@@ -33,8 +31,6 @@ export default function TelaCadastro() {
         cpf: stateForm.cpf,
         password: stateForm.senha
       }
-
-      console.log(dadosUsuario)
 
       //Bloqueia a edição do form enquanto a requisição é feita
       setStateForm((valorAnterior) => {

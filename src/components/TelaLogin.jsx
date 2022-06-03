@@ -45,7 +45,6 @@ export default function TelaLogin() {
     
     function successRequest(response) {
       const data = response.data;
-      console.log(data);
       setUserData({
         "id": data.id,
         "name": data.name,
