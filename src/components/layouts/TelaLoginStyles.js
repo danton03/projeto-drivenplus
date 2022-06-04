@@ -26,6 +26,8 @@ const Conteudo = styled.div`
       width: 100%;
       max-width: 298px;
       height: 52px;
+      padding-left: 14px;
+      box-sizing: border-box;
       border: none;
       border-radius: 8px;
   

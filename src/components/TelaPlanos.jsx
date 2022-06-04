@@ -17,7 +17,7 @@ export default function TelaPlanos() {
   };
 
   useEffect(() => {
-    //Requisição para a API de login
+    //Requisição para a API de dados dos planos
     const promise = axios.get(URL, config);
     promise.then(successRequest); //sucesso
     promise.catch(failInRequest); //falha

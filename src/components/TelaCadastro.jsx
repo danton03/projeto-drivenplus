@@ -66,8 +66,7 @@ export default function TelaCadastro() {
 
   function validaCPF(cpf) {
     // eslint-disable-next-line no-useless-escape
-    const validacao = /[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2}/g;
-    /* const re = /[0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2}/g;  caso o ponto e traço seja opcional*/
+    const validacao = /[0-9]{3}[\.][0-9]{3}[\.][0-9]{3}[-][0-9]{2}/i;
     return validacao.test(cpf);
   } 
   
