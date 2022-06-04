@@ -7,7 +7,6 @@ import { Conteudo } from "./layouts/TelaLoginStyles";
 
 export default function TelaCadastro() {
   const navigate = useNavigate();
-  //URL da requisição
   const URL = "https://mock-api.driven.com.br/api/v4/driven-plus/auth/sign-up";
   
   //Estado que controla os inputs e botões do formulário

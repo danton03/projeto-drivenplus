@@ -5,8 +5,7 @@ import UserContext from "../contexts/UserContext";
 import { ContainerPage } from "./layouts/ContainerPage";
 import { Conteudo, Topo } from "./layouts/TelaPlanoStyles";
 import { FaMoneyBillWave as MoneyIcon, FaArrowLeft as ArrowIcon } from "react-icons/fa";
-import { HiOutlineClipboardList as ChecklistIcon} from "react-icons/hi"
-import { IconContext } from "react-icons";
+import { HiOutlineClipboardList as ChecklistIcon} from "react-icons/hi";
 import { Button } from "./layouts/Button";
 import { Modal } from "./layouts/Modal";
 
@@ -17,7 +16,7 @@ export default function TelaPlano() {
   const [modalVisible, setModalVisible] = useState(false);
   const URL_DADOS_DO_PLANO = `https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions/memberships/${idDoPlano}`;
   const URL_DA_ASSINATURA = `https://mock-api.driven.com.br/api/v4/driven-plus/subscriptions`
-  const { userData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const { token } = userData;
   const config = {
     headers: {
@@ -43,7 +42,6 @@ export default function TelaPlano() {
     function successRequest(response) {
       const dadosDoPlano = response.data;
       setPlano(dadosDoPlano);
-      console.log(dadosDoPlano);
     }
 
     function failInRequest() {
@@ -158,8 +156,19 @@ export default function TelaPlano() {
           </p>
 
           <div className="botoes">
-            <Button onClick={toggleModal}background={"#CECECE"}>não</Button>
-            <Button onClick={handleSubmit} background={"#FF4791"}>sim</Button>
+            <Button 
+            type="button" 
+            onClick={toggleModal}
+            background={"#CECECE"}>
+              não
+            </Button>
+            
+            <Button 
+            type="button" 
+            onClick={handleSubmit} 
+            background={"#FF4791"}>
+              sim
+            </Button>
           </div>
         </div>
       </Modal>
@@ -197,7 +206,13 @@ export default function TelaPlano() {
     promise.then(successRequest); //sucesso
     promise.catch(failInRequest); //falha
 
-    function successRequest() {
+    function successRequest(response) {
+      const planoAssinado = response.data.membership;
+      const dadosAtualizados = {
+        ...userData,
+        membership: planoAssinado,
+      }
+      setUserData(dadosAtualizados);
       navigate("/home");
     }
 
@@ -213,32 +228,16 @@ export default function TelaPlano() {
   }
 
   return(
-    <IconContext.Provider value={{ className: 'react-icons' }}>
+    <>
       <Topo>
         <ArrowIcon onClick={() => navigate(-1)}/>
       </Topo>
       <ContainerPage>
 
-        { plano ? renderizaConteudo() : console.log(plano)}
+        { plano ? renderizaConteudo() : ''}
 
+        {modalVisible ? renderizaModal() : ''}
       </ContainerPage>
-      {modalVisible ? renderizaModal() : ''}
-    </IconContext.Provider>
+    </>
   );
 }
-
-/* function validaCartao(numeroDoCartao, cvv, validade) {
-    //Validação para os dados do form (adicionar posteriormente.falta melhorias)
-    const validaNumero = /[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4}/g;
-    const validaCVV = /[0-9]{3}/i;
-    const validaVencimento = /\b(0[1-9]|1[012])[\/][2-9]{2}\b/i;
-    const testeNumero = validaNumero.teste(numeroDoCartao);
-    const testeCVV = validaCVV.teste(cvv)
-    const testeValidade = validaVencimento(validade)
-    if(testeNumero && testeCVV && testeValidade){
-      return true;
-    }
-    else{
-      return false;
-    }
-  } */

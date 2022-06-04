@@ -29,8 +29,8 @@ const Button = styled.button`
 
   .mudarForm{
     background-color: transparent;
-    height: fit-content;
-    width: fit-content;
+    height: auto;
+    width: auto;
     margin-top: 25px;
     
     font-weight: 400;

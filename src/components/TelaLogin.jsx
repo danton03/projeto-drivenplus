@@ -46,13 +46,13 @@ export default function TelaLogin() {
     function successRequest(response) {
       const data = response.data;
       setUserData({
-        "id": data.id,
-        "name": data.name,
-        "cpf": data.cpf,
-        "email": data.email,
-        "password": data.password,
-        "membership": data.membership,
-        "token": data.token
+        id: data.id,
+        name: data.name,
+        cpf: data.cpf,
+        email: data.email,
+        password: data.password,
+        membership: data.membership,
+        token: data.token
       });
       //OBS.: Se o usuário não tiver assinatura, o atributo membership tem valor null
 
