@@ -241,3 +241,19 @@ export default function TelaPlano() {
     </>
   );
 }
+
+/* function validaCartao(numeroDoCartao, cvv, validade) {
+    //Validação para os dados do form (adicionar posteriormente.falta melhorias)
+    const validaNumero = /[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4}[\s]?[0-9]{4}/g;
+    const validaCVV = /[0-9]{3}/i;
+    const validaVencimento = /\b(0[1-9]|1[012])[\/][2-9]{2}\b/i;
+    const testeNumero = validaNumero.teste(numeroDoCartao);
+    const testeCVV = validaCVV.teste(cvv)
+    const testeValidade = validaVencimento(validade)
+    if(testeNumero && testeCVV && testeValidade){
+      return true;
+    }
+    else{
+      return false;
+    }
+  } */
