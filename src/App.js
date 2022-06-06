@@ -3,6 +3,8 @@ import GlobalStyle from "./assets/styles/GlobalStyle";
 
 /* Importação das Bibliotecas */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 /* Importação das páginas repassadas nas rotas */
 import TelaLogin from "./components/TelaLogin";
@@ -30,6 +32,7 @@ function App() {
             <Route path="/home" element={<TelaHome/>}/>
           </Routes>
         </BrowserRouter>
+        <ToastContainer />
       </IconContext.Provider>
     </UserContext.Provider>
   );

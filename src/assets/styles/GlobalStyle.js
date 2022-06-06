@@ -70,6 +70,10 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
+  .black-background{
+    background-color: var(--cor-preta);
+    color: var(--cor-branca);
+  }
 
 `;
  

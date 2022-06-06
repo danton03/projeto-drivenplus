@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Button } from "./layouts/Button";
 import { ContainerPage } from "./layouts/ContainerPage";
 import { Conteudo } from "./layouts/TelaLoginStyles";
@@ -45,6 +46,9 @@ export default function TelaCadastro() {
       promise.catch(failInRequest); //falha
       
       function successRequest() {
+        toast.success("Conta criada com sucesso!", {
+          className: 'black-background',
+        });
         navigate("/");
       }
 

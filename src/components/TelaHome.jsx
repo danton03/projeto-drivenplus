@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function TelaHome() {
   const { userData } = useContext(UserContext);
@@ -70,6 +71,9 @@ export default function TelaHome() {
     promise.catch(failInRequest); //falha
 
     function successRequest() {
+      toast.success("Plano cancelado com sucesso!", {
+        className: 'black-background',
+      });
       navigate("/subscriptions");
     }
 

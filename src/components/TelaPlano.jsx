@@ -8,6 +8,7 @@ import { FaMoneyBillWave as MoneyIcon, FaArrowLeft as ArrowIcon } from "react-ic
 import { HiOutlineClipboardList as ChecklistIcon} from "react-icons/hi";
 import { Button } from "./layouts/Button";
 import { Modal } from "./layouts/Modal";
+import { toast } from "react-toastify";
 
 export default function TelaPlano() {
   const navigate = useNavigate()
@@ -213,6 +214,9 @@ export default function TelaPlano() {
         membership: planoAssinado,
       }
       setUserData(dadosAtualizados);
+      toast.success("Plano assinado com sucesso!", {
+        className: 'black-background',
+      });
       navigate("/home");
     }
 
